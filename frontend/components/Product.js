@@ -13,6 +13,18 @@ const Product = ({ product }) => (
     </Title>
     <PriceTag>{FormatMoney(product.price)}</PriceTag>
     <p>{product.name}</p>
+    <div className="buttonList">
+      <Link
+        href={{
+          pathname: '/update',
+          query: {
+            id: product.id,
+          },
+        }}
+      >
+        Edit ✏️
+      </Link>
+    </div>
   </ItemStyles>
 );
 
