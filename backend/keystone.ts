@@ -7,7 +7,6 @@ import {
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
-
 import 'dotenv/config';
 import { insertSeedData } from './seed-data';
 
@@ -25,6 +24,11 @@ const { withAuth } = createAuth({
   secretField: 'password',
   initFirstItem: {
     fields: ['name', 'email', 'password'],
+  },
+  passwordResetLink: {
+    async sendToken(args) {
+      console.log(args);
+    },
   },
 });
 
@@ -56,7 +60,7 @@ export default withAuth(
         !!session?.data,
     },
     session: withItemData(statelessSessions(sessionConfig), {
-      User: 'id',
+      User: 'id name email',
     }),
   })
 );
