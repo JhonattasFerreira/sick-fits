@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import SingIn from '../components/SignIn';
 import SingUp from '../components/SignUp';
+import RequestReset from '../components/RequestReset';
 
 const GridStyles = styled.div`
   display: grid;
@@ -12,6 +13,7 @@ const signInPage = () => (
   <GridStyles>
     <SingIn />
     <SingUp />
+    <RequestReset />
   </GridStyles>
 );
 
